@@ -14,6 +14,10 @@ import UploadForm from './pages/UploadForm';
 import AboutusPage from './pages/AboutusPage';
 import RateUsPage from './pages/RateUsPage';
 
+import FeedbackPage from './pages/FeedbackPage';
+import RoadmapMainPage from './pages/RoadmapMainPage';
+import RoadmapDetailPage from './pages/RoadmapDetailsPage';
+
 
 
 
@@ -39,9 +43,14 @@ function App() {
      <Route path="/about" element ={<AboutusPage/>}/>
      <Route path="/uploadform/:type" element={<UploadForm />} />
      <Route path="/rateus" element ={<RateUsPage/>}/>
+     <Route path="/feedback" element ={<FeedbackPage/>}/>
+     <Route path="/roadmap" element={<RoadmapMainPage/>}/>
+     <Route path="/roadmap/:category" element={<RoadmapDetailPage/>}/>
+
   
    
-     
+
+
     
 
      

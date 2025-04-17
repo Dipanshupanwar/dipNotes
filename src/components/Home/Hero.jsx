@@ -1,8 +1,12 @@
 import { motion } from 'framer-motion';
+import Features from './Features';
+
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center  px-4 sm:px-6 lg:px-8" >
+    <section className="min-h-screen flex items-center justify-center  px-4 sm:px-6 lg:px-8 "  >
+   
+      
       <motion.div
         initial="hidden"
         animate="visible"

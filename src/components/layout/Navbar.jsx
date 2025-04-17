@@ -9,8 +9,7 @@ export default function Navbar() {
     { name: 'Home', href: '/' },
     { name: 'Academics', href: '/academic' },
     { name: 'Upload', href: '/up' },
-    { name: 'Placement', href: '#' },
-    { name: 'Extras', href: '#' }, 
+    { name: 'Explore Your Domain', href: '/roadmap' },
     { name: 'Feedback', href: '/feedback' },
     { name: 'RateUs', href: '/rateus' },
     { name: 'AboutUs', href: '/about' },
@@ -18,7 +17,7 @@ export default function Navbar() {
 
   return (
     <nav className="bg-green shadow-lg  w-full z-50 font-poppins" >
-      <Navbar/>
+    
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
