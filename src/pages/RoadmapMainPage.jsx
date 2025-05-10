@@ -87,7 +87,7 @@ function RoadmapMainPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-blue-900
       relative overflow-hidden bg-[radial-gradient(circle_at_center,_rgba(59,130,246,0.8)_0%,_rgba(30,58,138,0.9)_50%,_#000_100%)] text-white">
-     <Navbar/>
+    
       <div className="max-w-7xl mx-auto mt-6">
         {/* Hero Section */}
         <div className="text-center mb-16">

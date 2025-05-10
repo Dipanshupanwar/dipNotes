@@ -39,7 +39,6 @@ function RoadmapDetailPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-200 to-blue-900 ">
 
-        <Navbar/>
       <div className="max-w-6xl mx-auto mt-6">
         {/* Header with Back Button */}
         <div className="flex justify-between items-center mb-12">

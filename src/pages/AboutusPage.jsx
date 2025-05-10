@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaCode, FaEnvelope, FaReact, FaNodeJs } from 'react-icons/fa';
 import { SiMongodb, SiExpress, SiPython, SiCplusplus, SiLeetcode, SiMysql, SiReact, SiJavascript } from 'react-icons/si';
-import Navbar from '../components/layout/Navbar';
+
 
 const AboutusPage = () => {
   const skills = [
@@ -25,7 +25,7 @@ const AboutusPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-blue-900
       relative overflow-hidden bg-[radial-gradient(circle_at_center,_rgba(59,130,246,0.8)_0%,_rgba(30,58,138,0.9)_50%,_#000_100%)] text-white font-poppins ">
-      <Navbar/>
+
       <div className="max-w-6xl mx-auto mt-6">
         {/* Profile Section */}
         <motion.div 

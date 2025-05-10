@@ -16,7 +16,8 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="bg-green shadow-lg  w-full z-50 font-poppins" >
+    <nav className="bg-gradient-to-r from-purple-900 via-purple-1000 to-black text-white shadow-lg w-full z-50 font-poppins shadow-custom">
+
     
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
@@ -37,9 +38,13 @@ export default function Navbar() {
               {item.name}
             </Link>
             ))}
-            <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200">
-              Login
-            </button>
+<Link
+  to="/signup"
+  className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200"
+>
+  Login
+</Link>
+
           </div>
 
           {/* Mobile Menu Button */}

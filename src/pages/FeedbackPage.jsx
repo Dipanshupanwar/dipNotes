@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Navbar from '../components/layout/Navbar';
+
 
 const FeedbackPage = () => {
   const [feedback, setFeedback] = useState({
@@ -27,26 +27,43 @@ const FeedbackPage = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Feedback submitted:', feedback);
-    setSubmitted(true);
-    setTimeout(() => {
-      setFeedback({
-        name: '',
-        email: '',
-        rating: 0,
-        message: '',
-        feedbackType: 'general'
+  
+    try {
+      const response = await fetch('http://localhost:5000/api/feedback', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(feedback)
       });
-      setSubmitted(false);
-    }, 3000);
+  
+      const result = await response.json();
+  
+      if (response.ok) {
+        console.log('Feedback submitted:', result.message);
+        setSubmitted(true);
+        setTimeout(() => {
+          setFeedback({
+            name: '',
+            email: '',
+            rating: 0,
+            message: '',
+            feedbackType: 'general'
+          });
+          setSubmitted(false);
+        }, 3000);
+      } else {
+        alert(result.message || 'Failed to submit feedback');
+      }
+    } catch (error) {
+      console.error('Error submitting feedback:', error);
+    }
   };
-
+  
   return (
     <div className="min-h-screen  bg-gradient-to-br from-purple-900 via-black to-blue-900
       relative overflow-hidden bg-[radial-gradient(circle_at_center,_rgba(59,130,246,0.8)_0%,_rgba(30,58,138,0.9)_50%,_#000_100%)]">
-        <Navbar/>
+  
       <div className="max-w-3xl mx-auto mt-6">
         <div className="bg-white rounded-xl shadow-2xl overflow-hidden">
           {/* Header Section */}

@@ -12,7 +12,7 @@ function Homepage() {
     
           <div className="   bg-gradient-to-br from-purple-900 via-black to-blue-900
       relative overflow-hidden bg-[radial-gradient(circle_at_center,_rgba(59,130,246,0.8)_0%,_rgba(30,58,138,0.9)_50%,_#000_100%)]">
-    <Navbar/>
+   
     <Hero/>
      <Upload/>
      <Features/>

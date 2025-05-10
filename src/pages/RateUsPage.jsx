@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '../components/layout/Navbar';
+import { useEffect } from 'react';
 
 const RateUsPage = () => {
   // State management
@@ -12,6 +13,24 @@ const RateUsPage = () => {
   const [reviews, setReviews] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
+
+
+
+
+useEffect(() => {
+  const fetchReviews = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/reviews');
+      const data = await response.json();
+      setReviews(data);
+    } catch (err) {
+      console.error('Failed to fetch reviews:', err);
+    }
+  };
+
+  fetchReviews();
+}, []);
+
 
   // Handle form input changes
   const handleChange = (e) => {
@@ -25,31 +44,39 @@ const RateUsPage = () => {
   };
 
   // Form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-
-    // Validation
+  
     if (!formData.name || !formData.rating || !formData.review) {
       setError('Please fill all required fields');
       return;
     }
-
+  
     setIsSubmitting(true);
-
-    // Simulate API call
-    setTimeout(() => {
-      const newReview = {
-        ...formData,
-        date: new Date().toISOString(),
-        id: Date.now(),
-      };
-
-      setReviews(prev => [newReview, ...prev]);
+  
+    try {
+      const response = await fetch('http://localhost:5000/api/reviews', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+  
+      if (!response.ok) throw new Error('Failed to save review');
+  
+      const savedReview = await response.json();
+  
+      setReviews(prev => [savedReview, ...prev]);
       setFormData({ name: '', rating: 0, review: '' });
+    } catch (err) {
+      setError(err.message);
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
+  
 
   // Star rating component
   const StarRating = ({ rating, onRate, hoverRating, onHover }) => {
@@ -114,7 +141,7 @@ const RateUsPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-blue-900
       relative overflow-hidden bg-[radial-gradient(circle_at_center,_rgba(59,130,246,0.8)_0%,_rgba(30,58,138,0.9)_50%,_#000_100%)] text-white font-poppins ">
-        <Navbar/>
+   
       <div className="max-w-4xl mx-auto mt-7">
         {/* Rating Form Section */}
         <motion.section 

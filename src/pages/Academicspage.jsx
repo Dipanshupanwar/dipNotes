@@ -2,7 +2,6 @@
 import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Academiccards from '../components/AcademicPortal/Academiccards';
-import Navbar from '../components/layout/Navbar';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -23,7 +22,7 @@ const Academicspage = () => {
 
         <div className="min-h-screen bg-gradient-to-br from-purple-900 via-black to-blue-900
       relative overflow-hidden bg-[radial-gradient(circle_at_center,_rgba(59,130,246,0.8)_0%,_rgba(30,58,138,0.9)_50%,_#000_100%)]">
-            <Navbar/>
+         
             <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
                 <h1 className="text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-12">
                     Academic Resources

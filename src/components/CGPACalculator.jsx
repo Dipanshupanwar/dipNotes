@@ -43,7 +43,7 @@ const CGPACalculator = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 font-poppins text-white">
-      <Navbar />
+  
       
       <main className="container mx-auto px-4 py-8">
         <div className="max-w-3xl mx-auto bg-gray-800 rounded-xl shadow-2xl p-6 md:p-8">

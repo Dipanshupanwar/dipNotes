@@ -5,7 +5,7 @@ import Navbar from './layout/Navbar';
 const SemesterDrive = ({ title, semesterLinks, uploadPath }) => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 font-poppins text-white">
-      <Navbar />
+    
       
       <main className="container mx-auto px-4 py-8 flex flex-col items-center">
         {/* Header Section */}

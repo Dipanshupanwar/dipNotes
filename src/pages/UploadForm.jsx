@@ -1,12 +1,13 @@
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
-import Navbar from '../components/layout/Navbar';
+import axios from 'axios';
+
 
 
 function UploadForm() {
   const { type } = useParams();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -18,7 +19,7 @@ function UploadForm() {
   });
 
   const handleChange = (e) => {
-    setFormData({...formData, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
@@ -53,8 +54,8 @@ function UploadForm() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900  font-poppins">
-        <Navbar/>
-        <div className="max-w-2xl mx-auto mt-6">
+
+      <div className="max-w-2xl mx-auto mt-6">
 
         <div className="bg-gray-800 bg-opacity-50 rounded-xl shadow-xl overflow-hidden border border-gray-700">
           {/* Form Header */}
@@ -160,11 +161,10 @@ function UploadForm() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full py-3 px-6 rounded-lg font-semibold text-white transition-all ${
-                  isSubmitting
+                className={`w-full py-3 px-6 rounded-lg font-semibold text-white transition-all ${isSubmitting
                     ? 'bg-gray-600 cursor-not-allowed'
                     : 'bg-green-600 hover:bg-green-700 hover:shadow-lg'
-                }`}
+                  }`}
               >
                 {isSubmitting ? 'Submitting...' : 'Submit Upload Request'}
               </button>
