@@ -1,0 +1,1 @@
+c:\Users\buddy\Desktop\redux\class-redux\.gitignore
